@@ -11,8 +11,9 @@ Puppet::Type.type(:package).provide :puppetagent_gem, :parent => :gem do
 
   has_feature :versionable
 
-  commands :puppetgemcmd => ['/opt/puppetlabs/puppetbin/gem',
-                             '/opt/puppet/bin/gem']
+  commands :puppetgemcmd => '/opt/puppetlabs/puppet/bin/gem'
+  #commands :puppetgemcmd => ['/opt/puppetlabs/puppet/bin/gem',
+  #                           '/opt/puppet/bin/gem']
 
   def self.gemlist(options)
     gem_list_command = [command(:puppetgemcmd), "list"]
